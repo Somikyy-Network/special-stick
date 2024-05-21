@@ -29,14 +29,14 @@ public class LeafBall extends BukkitRunnable {
 
     @Override
     public void run() {
-        if (distanceTraveled > random.nextInt(13) + 3) {
+        if (distanceTraveled > random.nextInt(11) + 10) {
             createDome(location);
             cancel();
             return;
         }
 
         location.add(direction);
-        world.spawnParticle(Particle.VILLAGER_HAPPY, location, 10, 0.2, 0.2, 0.2, 0.05);
+        world.spawnParticle(Particle.VILLAGER_HAPPY, location, 1, 0.2, 0.2, 0.2, 0.05);
         distanceTraveled++;
     }
 
@@ -45,7 +45,7 @@ public class LeafBall extends BukkitRunnable {
     }
 
     private void createDome(Location center) {
-        int radius = random.nextInt(4) + 3;
+        int radius = random.nextInt(3) + 2;
         DomeCreator.createLeafDome(center, radius);
     }
 }
